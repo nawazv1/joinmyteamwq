@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#070707" />
+<title>Join My Sales Team</title>
+<style>
+:root{
+  --bg:#070707;
+  --panel:#111111;
+  --panel2:#161616;
+  --text:#f7f7f5;
+  --muted:#a7a7a2;
+  --line:rgba(255,255,255,.10);
+  --accent:#ef4444;
+  --accent-dark:#dc2626;
+  --danger:#ff7a7a;
+  --radius:24px;
+  --shadow:0 30px 90px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+button,input,textarea{font:inherit}
+a{color:inherit}
+.container{width:min(1120px,calc(100% - 34px));margin:0 auto}
+.top-strip{
+  position:sticky;top:0;z-index:30;
+  background:#0d0d0d;border-bottom:1px solid var(--line);
+  color:#dcdcd6;text-align:center;font-size:13px;font-weight:800;
+  padding:10px 14px;letter-spacing:.01em;
+}
+.top-strip b{color:var(--accent)}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 0;
+}
+.brand{
+  font-size:15px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
+}
+.nav-btn,.cta{
+  border:0;border-radius:999px;cursor:pointer;text-decoration:none;
+  background:var(--accent);color:#0a0a0a;font-weight:900;
+  padding:12px 18px;transition:.18s ease;
+}
+.nav-btn:hover,.cta:hover{transform:translateY(-1px);filter:brightness(1.04)}
+.hero{
+  text-align:center;padding:70px 0 52px;
+}
+.kicker{
+  display:inline-flex;gap:8px;align-items:center;
+  border:1px solid var(--line);background:rgba(255,255,255,.035);
+  border-radius:999px;padding:8px 12px;color:#d0d0cb;font-weight:800;font-size:12px;
+  text-transform:uppercase;letter-spacing:.08em;
+}
+.pulse{
+  width:8px;height:8px;background:var(--accent);border-radius:50%;
+  box-shadow:0 0 0 5px rgba(239,68,68,.10);
+}
+h1{
+  margin:24px auto 16px;
+  max-width:980px;
+  font-size:clamp(46px,8vw,92px);
+  line-height:.94;
+  letter-spacing:-.065em;
+}
+.hero-sub{
+  max-width:770px;margin:0 auto;color:#c7c7c2;
+  font-size:clamp(17px,2.2vw,23px);line-height:1.55;
+}
+.hero-sub strong{color:var(--text)}
+.hero-note{
+  margin:14px 0 0;color:#7f7f7a;font-size:12px;
+}
+.video-wrap{
+  margin:40px auto 0;max-width:920px;padding:10px;border-radius:28px;
+  background:linear-gradient(135deg,rgba(239,68,68,.24),rgba(255,255,255,.05));
+  box-shadow:var(--shadow);
+}
+.video-card{
+  aspect-ratio:16/9;border-radius:20px;overflow:hidden;position:relative;
+  background:
+    radial-gradient(circle at 25% 20%,rgba(216,255,56,.16),transparent 35%),
+    linear-gradient(145deg,#151515,#080808);
+  border:1px solid rgba(255,255,255,.08);
+  display:grid;place-items:center;
+}
+.play{
+  width:86px;height:86px;border-radius:50%;border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.08);display:grid;place-items:center;
+  backdrop-filter:blur(10px);box-shadow:0 15px 45px rgba(0,0,0,.35);
+}
+.play:before{
+  content:"";margin-left:6px;width:0;height:0;
+  border-top:13px solid transparent;border-bottom:13px solid transparent;border-left:20px solid white;
+}
+.video-label{
+  position:absolute;left:20px;bottom:18px;text-align:left;
+}
+.video-label strong{display:block;font-size:15px}
+.video-label span{color:#8d8d87;font-size:12px}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.secondary{
+  border:1px solid var(--line);border-radius:999px;text-decoration:none;
+  padding:12px 18px;color:#e5e5e0;font-weight:800;background:#111;
+}
+.section{
+  padding:86px 0;
+  border-top:1px solid var(--line);
+}
+.section-head{text-align:center;max-width:760px;margin:0 auto 36px}
+.eyebrow{
+  color:var(--accent);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;
+}
+h2{
+  margin:12px 0 12px;font-size:clamp(34px,5vw,60px);letter-spacing:-.05em;line-height:1;
+}
+.section-head p{margin:0;color:var(--muted);font-size:17px;line-height:1.7}
+.app-shell{
+  width:min(760px,100%);margin:0 auto;
+  background:linear-gradient(180deg,#121212,#0e0e0e);
+  border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow);
+}
+.app-top{
+  padding:20px 22px;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:14px;align-items:center;
+}
+.app-top strong{font-size:14px}
+.progress-text{font-size:12px;color:#8f8f89}
+.progress{
+  height:4px;background:#222;
+}
+.progress > div{
+  height:100%;width:16.66%;background:var(--accent);transition:.25s ease;
+}
+.q{
+  display:none;padding:34px;
+}
+.q.active{display:block}
+.q h3{
+  margin:0 0 8px;font-size:29px;letter-spacing:-.035em;
+}
+.q p{margin:0 0 24px;color:var(--muted);line-height:1.6}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.option{
+  min-height:58px;border:1px solid var(--line);border-radius:16px;background:#151515;
+  color:#efefeb;text-align:left;padding:15px 16px;font-weight:800;cursor:pointer;
+  transition:.16s ease;
+}
+.option:hover{border-color:rgba(239,68,68,.55);background:#191919}
+.option.selected{background:rgba(239,68,68,.10);border-color:var(--accent);color:var(--accent)}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{margin-bottom:14px}
+label{display:block;color:#b9b9b3;font-size:12px;font-weight:900;margin:0 0 7px}
+input,textarea{
+  width:100%;border:1px solid var(--line);border-radius:14px;background:#151515;color:white;
+  padding:14px 15px;outline:none;
+}
+input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(239,68,68,.08)}
+textarea{min-height:130px;resize:vertical}
+.app-actions{display:flex;gap:10px;justify-content:space-between;margin-top:24px}
+.back,.next{
+  border-radius:999px;padding:12px 17px;font-weight:900;cursor:pointer;
+}
+.back{border:1px solid var(--line);background:#141414;color:#e7e7e2}
+.next{border:0;background:var(--accent);color:#080808;margin-left:auto}
+.next:disabled{opacity:.4;cursor:not-allowed}
+.qualify-note{
+  background:#0d0d0d;border:1px solid var(--line);border-radius:16px;padding:15px 16px;
+  color:#bdbdb8;font-size:13px;line-height:1.55;margin-top:18px;
+}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{
+  background:#111;border:1px solid var(--line);border-radius:22px;padding:24px;
+}
+.card-num{
+  width:38px;height:38px;border-radius:12px;background:rgba(239,68,68,.10);
+  color:var(--accent);display:grid;place-items:center;font-weight:900;margin-bottom:30px;
+}
+.card h3{font-size:20px;margin:0 0 10px;letter-spacing:-.025em}
+.card p{margin:0;color:var(--muted);line-height:1.65;font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.step-card{
+  border-top:1px solid var(--line);padding:20px 10px 0 0;
+}
+.step-card b{color:var(--accent);font-size:12px}
+.step-card h3{margin:12px 0 8px;font-size:18px}
+.step-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+.calendar-shell{
+  display:none;width:min(920px,100%);margin:28px auto 0;
+  background:#111;border:1px solid var(--line);border-radius:26px;overflow:hidden;
+}
+.calendar-shell.show{display:block}
+.calendar-grid{display:grid;grid-template-columns:1fr .85fr}
+.cal{padding:24px;border-right:1px solid var(--line)}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.icon{
+  width:36px;height:36px;border-radius:12px;border:1px solid var(--line);
+  background:#171717;color:white;cursor:pointer;font-size:18px;
+}
+.month{font-weight:900}
+.week,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.week div{text-align:center;color:#6f6f6a;font-size:11px;font-weight:900;text-transform:uppercase}
+.day{
+  aspect-ratio:1;border:1px solid transparent;border-radius:12px;background:transparent;
+  color:#eee;cursor:pointer;font-weight:800;
+}
+.day:hover:not(:disabled){background:#1b1b1b}
+.day:disabled{color:#40403d;cursor:not-allowed}
+.day.selected{background:var(--accent);color:#090909}
+.times{padding:24px}
+.times h3{margin:0 0 7px;font-size:20px}
+.times p{margin:0 0 18px;color:var(--muted);font-size:13px}
+.slot-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.slot{
+  border:1px solid var(--line);border-radius:13px;background:#171717;color:white;
+  padding:12px;cursor:pointer;font-weight:800;
+}
+.slot.active{border-color:var(--accent);color:var(--accent);background:rgba(239,68,68,.08)}
+.slot.booked{
+  opacity:.45;
+  cursor:not-allowed;
+  text-decoration:line-through;
+  background:#101010;
+  color:#777;
+}
+.book{
+  width:100%;margin-top:14px;border:0;border-radius:14px;padding:14px;
+  background:var(--accent);color:#080808;font-weight:950;cursor:pointer;
+}
+.book:disabled{opacity:1;cursor:pointer}
+.success{
+  display:none;padding:48px 34px;text-align:center;
+}
+.success.show{display:block}
+.success .check{
+  width:64px;height:64px;border-radius:50%;background:rgba(239,68,68,.12);
+  color:var(--accent);display:grid;place-items:center;margin:0 auto 18px;font-size:30px;
+}
+.success h3{font-size:30px;margin:0 0 8px}
+.success p{color:var(--muted);margin:0 auto;max-width:540px;line-height:1.65}
+
+.final-booking-screen{
+  display:none;
+  width:min(760px,100%);
+  margin:28px auto 0;
+  padding:64px 28px;
+  text-align:center;
+  background:linear-gradient(180deg,#121212,#0e0e0e);
+  border:1px solid var(--line);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+}
+.final-booking-screen.show{display:block}
+.final-booking-screen .check{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(239,68,68,.12);
+  color:var(--accent);
+  display:grid;place-items:center;
+  margin:0 auto 20px;
+  font-size:34px;font-weight:900;
+}
+.final-booking-screen h3{
+  margin:0 0 10px;
+  font-size:34px;
+  letter-spacing:-.04em;
+}
+.final-booking-screen p{
+  margin:0 auto;
+  max-width:540px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.faq{width:min(820px,100%);margin:0 auto}
+.faq-item{border-top:1px solid var(--line)}
+.faq-q{
+  width:100%;text-align:left;background:none;border:0;color:white;
+  padding:22px 0;font-weight:900;font-size:17px;cursor:pointer;display:flex;justify-content:space-between;gap:15px;
+}
+.faq-a{display:none;color:var(--muted);padding:0 0 22px;line-height:1.7}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .plus{transform:rotate(45deg)}
+.plus{transition:.16s}
+.final-cta{
+  text-align:center;padding:90px 0 100px;border-top:1px solid var(--line);
+  background:radial-gradient(circle at 50% 10%,rgba(239,68,68,.09),transparent 35%);
+}
+.final-cta h2{max-width:760px;margin:0 auto 18px}
+.final-cta p{color:var(--muted);max-width:650px;margin:0 auto 28px;line-height:1.7}
+footer{
+  border-top:1px solid var(--line);padding:24px 0 40px;color:#666660;font-size:12px;line-height:1.6;
+}
+footer .foot{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+@media(max-width:850px){
+  .cards{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .calendar-grid{grid-template-columns:1fr}
+  .cal{border-right:0;border-bottom:1px solid var(--line)}
+}
+@media(max-width:620px){
+  .hero{padding-top:42px}
+  .nav-btn{display:none}
+  .q{padding:24px 18px}
+  .options,.field-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .calendar-shell{border-radius:18px}
+  .cal,.times{padding:18px}
+  .slot-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<iframe name="formspree_sink" style="display:none"></iframe>
+
+<div class="top-strip">⚡ Applications Open &nbsp;·&nbsp; <b>Limited spots available</b></div>
+
+<div class="container">
+  <nav class="nav">
+    <a class="nav-btn" href="#apply">Apply Now</a>
+    <div class="brand">Levels Financial</div>
+  </nav>
+
+  <section class="hero">
+    <h1>Join My Sales Team.</h1>
+    <p class="hero-sub">
+      I will personally help you and teach you how to work toward your first
+      <strong>$10K/month in sales.</strong>
+    </p>
+    <p class="hero-note">No income result is guaranteed. Your results depend on skill, effort, consistency, and opportunity.</p>
+<div class="hero-actions">
+      <a class="cta" href="#apply">See If You Qualify</a>
+      <a class="secondary" href="#how">See How It Works</a>
+    </div>
+  </section>
+</div>
+
+<section class="section" id="apply">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Application</div>
+      <h2>See if you’re a fit.</h2>
+      <p>Answer a few quick questions. If it looks like a fit, you’ll be able to choose a time to speak with me.</p>
+    </div>
+
+    <div class="app-shell" id="application">
+      <div class="app-top">
+        <strong>Sales Team Application</strong>
+        <span class="progress-text" id="progressText">Question 1 of 6</span>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+
+      <div class="q active" data-step="1">
+        <h3>How old are you?</h3>
+        <p>Select the range that best describes you.</p>
+        <div class="options" data-key="age">
+          <button class="option">18–20</button>
+          <button class="option">21–25</button>
+          <button class="option">26–35</button>
+          <button class="option">36+</button>
+        </div>
+        <div class="app-actions"><button class="next" disabled>Continue</button></div>
+      </div>
+
+      <div class="q" data-step="2">
+        <h3>Where are you located?</h3>
+        <p>This helps me understand your time zone and availability.</p>
+        <div class="options" data-key="location">
+          <button class="option">United States</button>
+          <button class="option">Canada</button>
+          <button class="option">Europe</button>
+          <button class="option">Australia / New Zealand</button>
+          <button class="option">Other</button>
+        </div>
+        <div class="app-actions"><button class="back">← Back</button><button class="next" disabled>Continue</button></div>
+      </div>
+
+      <div class="q" data-step="3">
+        <h3>How many hours are you willing to put in each day to make your first $10K/month?</h3>
+        <p>Be realistic. Consistency matters more than picking the biggest number.</p>
+        <div class="options" data-key="hours">
+          <button class="option">Under 5 hours/day</button>
+          <button class="option">6–8 hours/day</button>
+          <button class="option">10–12 hours/day</button>
+          <button class="option">However much it takes</button>
+        </div>
+        <div class="app-actions"><button class="back">← Back</button><button class="next" disabled>Continue</button></div>
+      </div>
+
+      <div class="q" data-step="4">
+        <h3>What’s your sales experience?</h3>
+        <p>Experience is helpful, but it is not required.</p>
+        <div class="options" data-key="experience">
+          <button class="option">No experience yet</button>
+          <button class="option">Some retail / customer service</button>
+          <button class="option">Phone or appointment setting experience</button>
+          <button class="option">Closing / professional sales experience</button>
+        </div>
+        <div class="app-actions"><button class="back">← Back</button><button class="next" disabled>Continue</button></div>
+      </div>
+
+      <div class="q" data-step="5">
+        <h3>Why do you think you would be a good fit?</h3>
+        <p>Tell me about your work ethic, goals, and why you want to learn sales.</p>
+        <textarea id="why" placeholder="Be specific..."></textarea>
+        <div class="app-actions">
+          <button class="back">← Back</button>
+          <button class="next" id="whyNext" disabled>Continue</button>
+        </div>
+      </div>
+
+      <div class="q" data-step="6">
+        <h3>Where should I contact you?</h3>
+        <p>Enter your phone number and email, then you’ll be able to book a call.</p>
+        <div class="field-grid">
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" placeholder="(555) 555-5555" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@email.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="qualify-note">Your answers will be submitted together when you continue to the calendar.</div>
+        <div class="app-actions">
+          <button class="back">← Back</button>
+          <button class="next" id="submitApp" disabled>Book a Call</button>
+        </div>
+      </div>
+
+      <div class="success" id="appSuccess">
+        <div class="check">✓</div>
+        <h3>Application complete.</h3>
+        <p>Choose a date and time below. Your full application will be submitted once when you confirm your call.</p>
+      </div>
+    </div>
+
+    <div class="calendar-shell" id="calendarShell">
+      <div class="calendar-grid">
+        <div class="cal">
+          <div class="cal-head">
+            <button class="icon" id="prevMonth">‹</button>
+            <div class="month" id="monthTitle"></div>
+            <button class="icon" id="nextMonth">›</button>
+          </div>
+          <div class="week">
+            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+          </div>
+          <div class="days" id="calendarDays"></div>
+        </div>
+        <div class="times">
+          <h3>Choose a time</h3>
+          <p id="selectedDateText">Select a date first.</p>
+          <div class="slot-grid" id="slotGrid"></div>
+          <button type="button" class="book" id="bookBtn">Confirm Call</button>
+          <div id="bookingStatus" style="margin-top:10px;font-size:13px;color:#a7a7a2;min-height:20px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="final-booking-screen" id="finalBookingScreen">
+      <div class="check">✓</div>
+      <h3>Thank you for booking.</h3>
+      <p id="finalBookingMessage">Your call has been confirmed. I’ll be in touch using the contact information you submitted.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What You Get</div>
+      <h2>A real path to getting better at sales.</h2>
+      <p>You’ll focus on practical skills you can use on real conversations, not just theory.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-num">01</div>
+        <h3>Personal coaching</h3>
+        <p>I’ll help you improve your approach, understand the sales process, and correct the mistakes that hold beginners back.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <h3>Scripts + objection handling</h3>
+        <p>Learn how to open calls, ask better questions, handle objections, and move conversations forward without sounding robotic.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <h3>Performance mindset</h3>
+        <p>Build the consistency, volume, follow-up habits, and communication skills needed to improve over time.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">04</div>
+        <h3>Helping you build your sales team</h3>
+        <p>Learn how to start building your own team, bring in the right people, and help them improve their sales skills too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">The Blueprint</div>
+      <h2>How the process works.</h2>
+    </div>
+    <div class="steps">
+      <div class="step-card"><b>STEP 01</b><h3>Apply</h3><p>Tell me about your situation, your goals, and how much time you can realistically commit.</p></div>
+      <div class="step-card"><b>STEP 02</b><h3>Book a call</h3><p>If you’re serious about learning, choose a time to talk through the opportunity.</p></div>
+      <div class="step-card"><b>STEP 03</b><h3>Learn the system</h3><p>Work on the fundamentals: communication, scripts, objections, follow-up, and closing.</p></div>
+      <div class="step-card"><b>STEP 04</b><h3>Execute</h3><p>Put in consistent reps, review what happened, improve, and build your skill set over time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2>Common questions.</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q">Do I need sales experience?<span class="plus">+</span></button>
+        <div class="faq-a">No. The application asks about your experience so I know where you are starting from, but beginners can apply.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How much time should I be willing to put in?<span class="plus">+</span></button>
+        <div class="faq-a">You should be willing to put in around 8–12 hours a day if you want to give yourself the best chance of seeing success as soon as possible. Consistency and actually putting in the work matter.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is $10K/month guaranteed?<span class="plus">+</span></button>
+        <div class="faq-a">Yes and no. No income result can be guaranteed if you do not listen, stay consistent, or put in the work. If you follow the coaching, take action, and keep improving, I’ll personally help you work toward the goal of reaching $10K/month as fast as your progress allows.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens after I apply?<span class="plus">+</span></button>
+        <div class="faq-a">After you apply, we’ll set up a call by Zoom or phone. On the call, we can book your test, go over the next steps, and answer any questions you have.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container foot">
+    <div>© 2026 Levels Financial</div>
+    
+  </div>
+</footer>
+
+<script>
+(() => {
+  // Paste your Formspree / webhook endpoint here when you are ready
+  // Example: "https://formspree.io/f/xxxxxxxx"
+  const APPLICATION_ENDPOINT = "https://formspree.io/f/mdekpvaw";
+
+  const app = {};
+  let step = 1;
+  const total = 6;
+  const questions = [...document.querySelectorAll(".q")];
+  const progressText = document.getElementById("progressText");
+  const progressBar = document.getElementById("progressBar");
+
+  function updateProgress(){
+    progressText.textContent = `Question ${step} of ${total}`;
+    progressBar.style.width = `${(step/total)*100}%`;
+  }
+
+  document.querySelectorAll(".options").forEach(group => {
+    const key = group.dataset.key;
+    group.querySelectorAll(".option").forEach(btn => {
+      btn.addEventListener("click", () => {
+        group.querySelectorAll(".option").forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        app[key] = btn.textContent.trim();
+        const q = group.closest(".q");
+        q.querySelector(".next").disabled = false;
+      });
+    });
+  });
+
+  function goTo(n){
+    questions.forEach(q => q.classList.remove("active"));
+    step = n;
+    const target = document.querySelector(`.q[data-step="${step}"]`);
+    if(target) target.classList.add("active");
+    updateProgress();
+    document.getElementById("application").scrollIntoView({behavior:"smooth",block:"center"});
+  }
+
+  document.querySelectorAll(".q .next:not(#submitApp)").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(step < total) goTo(step + 1);
+    });
+  });
+
+  document.querySelectorAll(".back").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(step > 1) goTo(step - 1);
+    });
+  });
+
+  const why = document.getElementById("why");
+  const whyNext = document.getElementById("whyNext");
+  const phone = document.getElementById("phone");
+  const email = document.getElementById("email");
+  const submit = document.getElementById("submitApp");
+
+  why.addEventListener("input", () => {
+    app.why = why.value.trim();
+    whyNext.disabled = app.why.length === 0;
+  });
+
+  function validateContact(){
+    const phoneOk = phone.value.trim().length > 0;
+    const emailOk = email.value.trim().length > 0;
+    submit.disabled = !(phoneOk && emailOk);
+  }
+
+  phone.addEventListener("input", validateContact);
+  email.addEventListener("input", validateContact);
+
+  submit.addEventListener("click", () => {
+    app.why = why.value.trim();
+    app.phone = phone.value.trim();
+    app.email = email.value.trim();
+    app.createdAt = new Date().toISOString();
+
+    submit.disabled = true;
+    submit.textContent = "Opening Calendar...";
+
+    document.querySelector('.q[data-step="6"]').classList.remove("active");
+    document.querySelector(".app-top").style.display = "none";
+    document.querySelector(".progress").style.display = "none";
+    document.getElementById("appSuccess").classList.add("show");
+    document.getElementById("calendarShell").classList.add("show");
+    renderCalendar();
+
+    setTimeout(() => {
+      document.getElementById("calendarShell").scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+    }, 150);
+
+    const drafts = JSON.parse(localStorage.getItem("salesTeamApplications") || "[]");
+    drafts.push({...app});
+    localStorage.setItem("salesTeamApplications", JSON.stringify(drafts));
+  });
+
+  document.querySelectorAll(".faq-q").forEach(btn => {
+    btn.addEventListener("click",()=>btn.closest(".faq-item").classList.toggle("open"));
+  });
+
+  // Calendar
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  let viewDate = new Date(today.getFullYear(),today.getMonth(),1);
+  let selectedDate = null;
+  let selectedTime = null;
+  const slots = ["10:00 AM","11:00 AM","12:00 PM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM","6:00 PM","7:00 PM"];
+  const calendarDays = document.getElementById("calendarDays");
+  const monthTitle = document.getElementById("monthTitle");
+  const selectedDateText = document.getElementById("selectedDateText");
+  const slotGrid = document.getElementById("slotGrid");
+  const bookBtn = document.getElementById("bookBtn");
+  const finalBookingScreen = document.getElementById("finalBookingScreen");
+  const finalBookingMessage = document.getElementById("finalBookingMessage");
+  const bookingStatus = document.getElementById("bookingStatus");
+
+  function keyDate(d){
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+  }
+
+  function showFinalBookingScreen(booking){
+    const applicationSection = document.getElementById("application");
+    const calendar = document.getElementById("calendarShell");
+
+    if(applicationSection) applicationSection.style.display = "none";
+    if(calendar) calendar.classList.remove("show");
+
+    if(booking && booking.date && booking.time){
+      const readableDate = new Date(booking.date + "T12:00:00").toLocaleDateString(
+        undefined,
+        {weekday:"long",month:"long",day:"numeric",year:"numeric"}
+      );
+      finalBookingMessage.textContent =
+        `Your call is confirmed for ${readableDate} at ${booking.time}. I’ll be in touch using the contact information you submitted.`;
+    }
+
+    finalBookingScreen.classList.add("show");
+    finalBookingScreen.scrollIntoView({behavior:"smooth",block:"center"});
+  }
+  function fmt(d){
+    return d.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric",year:"numeric"});
+  }
+  function booked(date,time){
+    const key = `${keyDate(date)}|${time}`;
+
+    const blocked = JSON.parse(localStorage.getItem("itcBookedSlots") || "[]");
+    if(blocked.includes(key)) return true;
+
+    const all = JSON.parse(localStorage.getItem("salesTeamBookings") || "[]");
+    return all.some(x => x.date === keyDate(date) && x.time === time);
+  }
+
+  function blockBookedSlot(date,time){
+    const key = `${date}|${time}`;
+    const blocked = JSON.parse(localStorage.getItem("itcBookedSlots") || "[]");
+    if(!blocked.includes(key)){
+      blocked.push(key);
+      localStorage.setItem("itcBookedSlots", JSON.stringify(blocked));
+    }
+  }
+
+  function renderCalendar(){
+    monthTitle.textContent = viewDate.toLocaleDateString(undefined,{month:"long",year:"numeric"});
+    calendarDays.innerHTML = "";
+    const y=viewDate.getFullYear(), m=viewDate.getMonth();
+    const first=new Date(y,m,1).getDay();
+    const count=new Date(y,m+1,0).getDate();
+
+    for(let i=0;i<first;i++){
+      const blank=document.createElement("button");
+      blank.className="day";blank.disabled=true;blank.textContent="";
+      calendarDays.appendChild(blank);
+    }
+    for(let d=1;d<=count;d++){
+      const date=new Date(y,m,d);
+      const btn=document.createElement("button");
+      btn.className="day";btn.textContent=d;
+      if(date<today || date.getDay()===0){btn.disabled=true}
+      if(selectedDate && keyDate(date)===keyDate(selectedDate)) btn.classList.add("selected");
+      btn.addEventListener("click",()=>{
+        selectedDate=date;selectedTime=null;renderCalendar();renderSlots();
+      });
+      calendarDays.appendChild(btn);
+    }
+  }
+
+  function renderSlots(){
+    selectedDateText.textContent = selectedDate ? fmt(selectedDate) : "Select a date first.";
+    slotGrid.innerHTML = "";
+
+    if(!selectedDate){
+      selectedTime = null;
+      bookBtn.setAttribute("aria-disabled","true");
+      return;
+    }
+
+    slots.forEach(time=>{
+      const isTaken = booked(selectedDate,time);
+      const b=document.createElement("button");
+      b.type="button";
+      b.className="slot";
+      b.textContent=isTaken ? `${time} — Booked` : time;
+
+      if(isTaken){
+        b.classList.add("booked");
+        b.disabled=true;
+      } else {
+        if(selectedTime===time) b.classList.add("active");
+        b.addEventListener("click",()=>{
+          selectedTime=time;
+          renderSlots();
+        });
+      }
+
+      slotGrid.appendChild(b);
+    });
+
+    bookBtn.setAttribute("aria-disabled", selectedTime ? "false" : "true");
+  }
+
+  document.getElementById("prevMonth").addEventListener("click",()=>{
+    const prev=new Date(viewDate.getFullYear(),viewDate.getMonth()-1,1);
+    const min=new Date(today.getFullYear(),today.getMonth(),1);
+    if(prev>=min){viewDate=prev;renderCalendar();}
+  });
+  document.getElementById("nextMonth").addEventListener("click",()=>{
+    viewDate=new Date(viewDate.getFullYear(),viewDate.getMonth()+1,1);
+    renderCalendar();
+  });
+
+  bookBtn.addEventListener("click", ()=>{
+    if(!selectedDate || !selectedTime){
+      bookingStatus.textContent = "Please choose a date and time first.";
+      return;
+    }
+
+    if(bookBtn.dataset.submitting === "true") return;
+    bookBtn.dataset.submitting = "true";
+
+    const submission={
+      type:"sales_team_application",
+      age:app.age || "",
+      location:app.location || "",
+      hours:app.hours || "",
+      experience:app.experience || "",
+      why:app.why || "",
+      phone:app.phone || "",
+      email:app.email || "",
+      date:keyDate(selectedDate),
+      time:selectedTime,
+      submittedAt:new Date().toISOString()
+    };
+
+    bookingStatus.textContent = "Submitting your booking...";
+    bookBtn.textContent = "Confirming...";
+
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = APPLICATION_ENDPOINT;
+    form.target = "formspree_sink";
+    form.style.display = "none";
+
+    const fields = {
+      "_subject":"New Sales Team Call Booking",
+      "Age":submission.age,
+      "Location":submission.location,
+      "Hours per day":submission.hours,
+      "Sales experience":submission.experience,
+      "Why they are a good fit":submission.why,
+      "Phone":submission.phone,
+      "Email":submission.email,
+      "Booked date":submission.date,
+      "Booked time":submission.time
+    };
+
+    Object.entries(fields).forEach(([name,value])=>{
+      const input=document.createElement("input");
+      input.type="hidden";
+      input.name=name;
+      input.value=value;
+      form.appendChild(input);
+    });
+
+    document.body.appendChild(form);
+    form.submit();
+    form.remove();
+
+    // Save locally and lock the browser after the standard POST fires.
+    const all=JSON.parse(localStorage.getItem("salesTeamBookings")||"[]");
+    all.push(submission);
+    localStorage.setItem("salesTeamBookings",JSON.stringify(all));
+
+    // Block this date/time from being selected again in this browser.
+    blockBookedSlot(submission.date, submission.time);
+
+    localStorage.setItem("salesTeamBookingCompleted", JSON.stringify(submission));
+
+    bookingStatus.textContent = "Booking submitted.";
+    setTimeout(()=>showFinalBookingScreen(submission), 450);
+  });
+
+  updateProgress();
+
+  if(window.location.protocol === "file:"){
+    bookingStatus.textContent = "Local preview mode: Formspree delivery may be blocked here. Deploy to Vercel/Netlify for a real submission test.";
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  if(params.get("reset") === "1"){
+    localStorage.removeItem("salesTeamBookingCompleted");
+    localStorage.removeItem("salesTeamBookings");
+    localStorage.removeItem("salesTeamApplications");
+    localStorage.removeItem("itcBookedSlots");
+  }
+
+  const completedBooking = localStorage.getItem("salesTeamBookingCompleted");
+  if(completedBooking){
+    try{
+      showFinalBookingScreen(JSON.parse(completedBooking));
+    }catch{
+      showFinalBookingScreen(null);
+    }
+  }
+})();
+</script>
+</body>
+</html>
